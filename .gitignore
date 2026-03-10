@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# FreeCAD output files
+*.FCStd
+*.FCStd1
+*.step
+*.stp
+*.stl
+*.brep
