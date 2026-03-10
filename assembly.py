@@ -45,24 +45,27 @@ for obj in doc.Objects:
 
 # ── Build parts ───────────────────────────────────────────────────────
 
-nema17 = load_part("parts/nema17.py")
-byj48  = load_part("parts/byj48.py")
+nema17  = load_part("parts/nema17.py")
+byj48   = load_part("parts/byj48.py")
+feeder  = load_part("parts/feeder.py")
 
 # ── Arrange ───────────────────────────────────────────────────────────
 #
-#   Place the NEMA 17 at the origin and the 28BYJ-48 60 mm to the right.
-#   Both motors face the same direction (+Z shaft out).
+#   NEMA 17 at origin, 28BYJ-48 60 mm to the right, feeder 130 mm to the
+#   right (spaced clear of the motor envelope).  All parts share Z=0 base.
 
 parts = [
-    ("NEMA17",  place(nema17,  x=  0)),
-    ("28BYJ48", place(byj48,   x= 60)),
+    ("NEMA17",       place(nema17,  x=   0)),
+    ("28BYJ48",      place(byj48,   x=  60)),
+    ("1KGSSJ-B",     place(feeder,  x= 130)),
 ]
 
 # ── Add to document ───────────────────────────────────────────────────
 
 colors = {
-    "NEMA17":  (0.65, 0.65, 0.70),   # brushed aluminium
-    "28BYJ48": (0.20, 0.20, 0.20),   # dark plastic
+    "NEMA17":    (0.65, 0.65, 0.70),   # brushed aluminium
+    "28BYJ48":   (0.20, 0.20, 0.20),   # dark plastic
+    "1KGSSJ-B":  (0.15, 0.15, 0.15),   # anodised black
 }
 
 for name, shape in parts:
