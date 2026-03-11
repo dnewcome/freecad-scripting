@@ -45,9 +45,14 @@ for obj in doc.Objects:
 
 # ── Build parts ───────────────────────────────────────────────────────
 
-nema17  = load_part("parts/nema17.py")
-byj48   = load_part("parts/byj48.py")
-feeder  = load_part("parts/feeder.py")
+nema17      = load_part("parts/nema17.py")
+byj48       = load_part("parts/byj48.py")
+feeder      = load_part("parts/feeder.py")
+bender_head = load_part("parts/bender_head.py")
+tube        = load_part("parts/tube.py")
+pulley      = load_part("parts/pulley.py")
+pulley_20t  = load_part("parts/pulley_20t.py")
+pulley_16t  = load_part("parts/pulley_16t.py")
 
 # ── Arrange ───────────────────────────────────────────────────────────
 #
@@ -55,17 +60,27 @@ feeder  = load_part("parts/feeder.py")
 #   right (spaced clear of the motor envelope).  All parts share Z=0 base.
 
 parts = [
-    ("NEMA17",       place(nema17,  x=   0)),
-    ("28BYJ48",      place(byj48,   x=  60)),
-    ("1KGSSJ-B",     place(feeder,  x= 130)),
+    ("NEMA17",       place(nema17,       x=   0)),
+    ("28BYJ48",      place(byj48,        x=  60)),
+    ("1KGSSJ-B",     place(feeder,       x= 130)),
+    ("BenderHead",   place(bender_head,  x= 200)),
+    ("Tube",         place(tube,         x= 260)),
+    ("Pulley",       place(pulley,       x= 310)),
+    ("Pulley20T",    place(pulley_20t,   x= 370)),
+    ("Pulley16T",    place(pulley_16t,   x= 400)),
 ]
 
 # ── Add to document ───────────────────────────────────────────────────
 
 colors = {
-    "NEMA17":    (0.65, 0.65, 0.70),   # brushed aluminium
-    "28BYJ48":   (0.20, 0.20, 0.20),   # dark plastic
-    "1KGSSJ-B":  (0.15, 0.15, 0.15),   # anodised black
+    "NEMA17":      (0.65, 0.65, 0.70),   # brushed aluminium
+    "28BYJ48":     (0.20, 0.20, 0.20),   # dark plastic
+    "1KGSSJ-B":    (0.15, 0.15, 0.15),   # anodised black
+    "BenderHead":  (0.80, 0.80, 0.80),   # light grey
+    "Tube":        (0.75, 0.75, 0.80),   # stainless steel
+    "Pulley":      (0.85, 0.85, 0.88),   # aluminium
+    "Pulley20T":   (0.85, 0.85, 0.88),   # aluminium
+    "Pulley16T":   (0.85, 0.85, 0.88),   # aluminium
 }
 
 for name, shape in parts:
